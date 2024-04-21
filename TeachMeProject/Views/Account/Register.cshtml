@@ -1,0 +1,57 @@
+﻿@model TeachMeProject.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<link rel="stylesheet" href="~/css/login.css" />
+<div class="sign-up-form">
+    <img src="~/imgs/circle-user.png" alt="">
+    <h1>Sign Up Now </h1>
+
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
+    {
+
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group">
+
+            <label class="labels">Name</label>
+
+            @Html.TextBoxFor(m => m.Name, new { @class = "input-box", @placeholder = "Your Name" })
+
+        </div>
+        <div class="form-group">
+
+            <label class="labels">Email</label>
+
+            @Html.TextBoxFor(m => m.Email, new { @class = "input-box", @placeholder = "Your Email" })
+
+        </div>
+
+        <div class="form-group">
+            <label class="labels">Password</label>
+
+            @Html.PasswordFor(m => m.Password, new { @class = "input-box", @placeholder = "Your Password" })
+
+        </div>
+        <div class="form-group">
+            <label class="labels">Confirm Password</label>
+
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "input-box", @placeholder = "Confirm Password" })
+
+        </div>
+
+
+
+        <button type="submit" class="signup-btn">Sign Up</button>
+
+
+    }
+
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    
+    }
+</div>

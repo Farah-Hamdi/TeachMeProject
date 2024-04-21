@@ -1,0 +1,521 @@
+﻿@model IEnumerable<TeachMeProject.Models.Course>
+
+
+
+<link rel="stylesheet" href="~/css/courses.css">
+
+<!-- Link Swiper's CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+
+
+<!--Video Slider-->
+
+<section class="home">
+    <video class="video-slide active" src="~/videos/course1.mp4" autoplay muted loop></video>
+    <video class="video-slide" src="~/videos/course2.mp4" autoplay muted loop></video>
+    <video class="video-slide" src="~/videos/course3.mp4" autoplay muted loop></video>
+    <video class="video-slide" src="~/videos/course4.mp4" autoplay muted loop></video>
+    <video class="video-slide" src="~/videos/course5.mp4" autoplay muted loop></video>
+    <div class="content">
+        <h1>Join the Revolution.</h1>
+        <p>TeachMe provides an online learning platform is a webspace or portal for educational content and resources that offers a student everything they need in one place: lectures, resources, opportunities to meet and chat with other students, and more. It is also an excellent way for the student and the teacher to monitor student progress.</p>
+        <a href="/Home/About" class="btn">Read More</a>
+    </div>
+    <div class="media-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+    <div class="slider-navigation">
+        <div class="nav-btn active"></div>
+        <div class="nav-btn"></div>
+        <div class="nav-btn"></div>
+        <div class="nav-btn"></div>
+        <div class="nav-btn"></div>
+    </div>
+</section>
+
+<div class="abtlanding">
+    <h1>Our Courses</h1>
+    <br>
+</div>
+<br>
+<!--Swiper-->
+<section id="swipe">
+    <div class=" swiper mySwiper container">
+        <div class="swiper-wrapper content">
+            @foreach (var course in Model)
+            {
+                <div class="swiper-slide card">
+
+                    <div class="card-content">
+                        <div class="image">
+                            <img src="@Url.Content(course.ImagePath)" alt="Image" />
+                        </div>
+
+                        <div class="course-instructor">
+                            <span class="name">@course.Name</span>
+                            <span class="instructor">@course.Instructor.Name</span>
+                        </div>
+
+                        <div class="price">
+                            <text>$@course.Price</text>
+                        </div>
+                        <div class="rating">
+                            <i>Rating: @course.Rating /5</i>
+                            
+                        </div>
+
+                        <div class="button">
+                            <button class="aboutMe" onclick="fashion_function()">Know More </button>
+                            <a href="/Account/Register"> <button class="signUp"> Sign Up</button></a>
+                        </div>
+                    </div>
+                   
+                </div>
+            }
+                @*<div class="swiper-slide card">
+                <div class="card-content">
+                    <div class="image">
+                        <img src="~/imgs/200228163125-stack-coding.jpg" alt="course1">
+                    </div>
+
+                    <div class="course-instructor">
+                        <span class="name">Web Development</span>
+                        <span class="instructor">Ben Calvin</span>
+                    </div>
+
+                    <div class="price">
+                        <text>$25.00</text>
+                    </div>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+
+                    <div class="button">
+                        <button class="aboutMe" onclick="web_function()">Know More </button>
+                        <a href="/Account/Register"> <button class="signUp"> Sign Up</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide card">
+                <div class="card-content">
+                    <div class="image">
+                        <img src="~/imgs/website-marketing.jpg" alt="course1">
+                    </div>
+
+                    <div class="course-instructor">
+                        <span class="name">Digital Marketing</span>
+                        <span class="instructor">Melina Mollins</span>
+                    </div>
+
+                    <div class="price">
+                        <text>$50.00</text>
+                    </div>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+
+                    <div class="button">
+                        <button class="aboutMe" onclick="market_function()">Know More</button>
+                        <a href="/Account/Register"> <button class="signUp"> Sign Up</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide card">
+                <div class="card-content">
+                    <div class="image">
+                        <img src="~/imgs/pianists-playing-live.jpg" alt="course1">
+                    </div>
+
+                    <div class="course-instructor">
+                        <span class="name">Music</span>
+                        <span class="instructor">Nick Mullins</span>
+                    </div>
+
+                    <div class="price">
+                        <text>$110.99</text>
+                    </div>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+
+                    <div class="button">
+                        <button class="aboutMe" onclick="music_function()">Know More </button>
+                        <a href="/Account/Register"> <button class="signUp"> Sign Up</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide card">
+                <div class="card-content">
+                    <div class="image">
+                        <img src="~/imgs/Self-Development-1-1080x675.jpg" alt="course1">
+                    </div>
+
+                    <div class="course-instructor">
+                        <span class="name">Self Development</span>
+                        <span class="instructor">Maria Sith</span>
+                    </div>
+
+                    <div class="price">
+                        <text>$65.35</text>
+                    </div>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+
+                    <div class="button">
+                        <button class="aboutMe" onclick="self_function()">Know More </button>
+                        <a href="/Account/Register"> <button class="signUp"> Sign Up</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide card">
+                <div class="card-content">
+                    <div class="image">
+                        <img src="~/imgs/dslr-course.jpg" alt="course1">
+                    </div>
+
+                    <div class="course-instructor">
+                        <span class="name">Photography</span>
+                        <span class="instructor">Clara Adams</span>
+                    </div>
+                    <div class="price">
+                        <text>$41.00</text>
+                    </div>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+
+                    <div class="button">
+                        <button class="aboutMe" onclick="photo_function()">Know More </button>
+                        <a href="/Account/Register"> <button class="signUp"> Sign Up</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide card">
+                <div class="card-content">
+                    <div class="image">
+                        <img src="~/imgs/OCR-SoftwareDevelopment-19-1280x707.jpg" alt="course1">
+                    </div>
+
+                    <div class="course-instructor">
+                        <span class="name">App Development</span>
+                        <span class="instructor">Kevin Sam</span>
+                    </div>
+                    <div class="price">
+                        <text>$49.99</text>
+                    </div>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+
+                    <div class="button">
+                        <button class="aboutMe" onclick="app_function()">Know More </button>
+                        <a href="/Account/Register"> <button class="signUp"> Sign Up</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide card">
+                <div class="card-content">
+                    <div class="image">
+                        <img src="~/imgs/Illustration-Major-2.jpg" alt="course1">
+                    </div>
+
+                    <div class="course-instructor">
+                        <span class="name">Graphic Illustration</span>
+                        <span class="instructor">Hope Sheridan</span>
+                    </div>
+                    <div class="price">
+                        <text>$41.89</text>
+                    </div>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+
+                    <div class="button">
+                        <button class="aboutMe" onclick="graphic_function()">Know More </button>
+                        <a href="/Account/Register"> <button class="signUp"> Sign Up</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide card">
+                <div class="card-content">
+                    <div class="image">
+                        <img src="~/imgs/1575982796phpOZN6Ha.jpeg" alt="course1">
+                    </div>
+
+                    <div class="course-instructor">
+                        <span class="name">Data Science in Python</span>
+                        <span class="instructor">Lily Sheldon</span>
+                    </div>
+                    <div class="price">
+                        <text>$70.99</text>
+                    </div>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+
+                    <div class="button">
+                        <button class="aboutMe" onclick="data_function()">Know More </button>
+                        <a href="/Account/Register"> <button class="signUp"> Sign Up</button></a>
+                    </div>
+                </div>
+            </div>*@
+            </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+</section>
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        slidesPerGroup: 3,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+</script>
+
+<!--Fashion Design-->
+<div id="fashion-design-form">
+    <div class="fashion-design">
+        <h2>Fashion Design</h2>
+        <text>This online course introduces students to basic design principles, including proportion and color. Garment and clothing details and terminology are also discussed. Students work on developing and editing collections and studying current fashion trends. The course often includes basic figure and technical drawings.</text>
+        <br>
+        <a href="/Account/Register"> <button class="fashion-btn"> Sign Up</button></a>
+    </div>
+    <div class="fashion-img">
+        <img src="~/imgs/fashion.png" alt="">
+    </div>
+    <div class="close-button">
+        <button onclick="document.getElementById('fashion-design-form').style.display='none'" id="cancelbtn-f"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+</div>
+
+<!--Web Development-->
+<div id="web-form">
+    <div class="web">
+        <h2>Web Development</h2>
+        <text>This course is intended to teach students the fundamentals of web development in a project-based learning environment. Students are taught the basic elements of web development, such as web hosting, file organization, and incorporating Javascript into HTML files.</text>
+        <br>
+        <a href="/Account/Register"> <button class="web-btn"> Sign Up</button></a>
+    </div>
+    <div class="web-img">
+        <img src="~/imgs/web-dev.png" alt="">
+    </div>
+    <div class="close-button">
+        <button onclick="document.getElementById('web-form').style.display='none'" id="cancelbtn-w"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+</div>
+
+<!--Digital Marketing -->
+<div id="marketing-form">
+    <div class="marketing">
+        <h2>Digital Marketing</h2>
+        <text>Students in this course will explore the development, production and implementation of digital-marketing delivery methods including, but not limited to, email marketing, web-based marketing, search-engine optimization (SEO), online advertising, and social media.</text>
+        <br>
+        <a href="/Account/Register"> <button class="marketing-btn"> Sign Up</button></a>
+    </div>
+    <div class="marketing-img">
+        <img src="~/imgs/mareketing.png" alt="">
+    </div>
+    <div class="close-button">
+        <button onclick="document.getElementById('marketing-form').style.display='none'" id="cancelbtn-m"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+</div>
+
+<!--Music-->
+<div id="music-form">
+    <div class="music">
+        <h2>Music</h2>
+        <text>
+            Introduction to musical elements, including reading and writing notes and rhythms, major and minor scales and key signatures, intervals and triads. Ear training and piano skills are incorporated.Identify and define common musical symbols and terms.
+            Identify and notate pitches on the staff- treble, alto, tenor and bass clefs.
+            Identify and write basic rhythms in simple and compound meters.
+            Construct major and minor scales.
+            Identify and notate all major and minor key signatures.
+            Identify and notate all diatonic simple intervals.
+            Identify/notate the following by ear: all simple intervals; major, natural minor, harmonic minor, and melodic minor scales; triads in root position; rhythms in simple time signatures; melodies on the first five notes of the major scale.
+            Play the following on piano: Major scales and primary chords; short piano pieces (level to be determined by student and instructor).
+        </text>
+        <br>
+        <a href="/Account/Register"> <button class="music-btn"> Sign Up</button></a>
+    </div>
+    <div class="music-img">
+        <img src="~/imgs/music.png" alt="">
+    </div>
+    <div class="close-button">
+        <button onclick="document.getElementById('music-form').style.display='none'" id="cancelbtn-mu"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+</div>
+
+<!--Self-Development-->
+<div id="self-form">
+    <div class="self">
+        <h2>Self Development</h2>
+        <text>
+            The course will help you increase your self-awareness, set and pursue meaningful
+            goals, and develop positive personal qualities such as self-esteem, a positive attitude, selfdiscipline, and self-motivation. This course will also help you adjust to transitions such as
+            progressing from high school to college, returning to college, and making the leap from
+            college to the world of work. By participating in class activities and discussions and by
+            completing the activities in your text, you will build a valuable record of your dreams,
+            goals, skills, interests, values, and more
+        </text>
+        <br>
+        <a href="/Account/Register"> <button class="self-btn"> Sign Up</button></a>
+    </div>
+    <div class="self-img">
+        <img src="~/imgs/self-development.png" alt="">
+    </div>
+    <div class="close-button">
+        <button onclick="document.getElementById('self-form').style.display='none'" id="cancelbtn-s"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+</div>
+
+<!--Photography-->
+<div id="photography-form">
+    <div class="photography">
+        <h2>Photography</h2>
+        <text>This course is the perfect introduction to digital photography. You'll learn how to use exposure, F/stops, shutter speeds, lighting techniques, white balance, and depth of field to create powerful and compelling images in and out of the studio. It is designed for students who have never used an SLR camera, but the coursework is also a great refresher for those who want to perfect their technical skills.</text>
+        <br>
+        <a href="/Account/Register"> <button class="photo-btn"> Sign Up</button></a>
+    </div>
+    <div class="photo-img">
+        <img src="~/imgs/photography.png" alt="">
+    </div>
+    <div class="close-button">
+        <button onclick="document.getElementById('photography-form').style.display='none'" id="cancelbtn-p"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+</div>
+
+<!--Application Development-->
+<div id="app-dev-form">
+    <div class="app-dev">
+        <h2>Application Development</h2>
+        <text>
+            This project-oriented course examines the principles of mobile application design and development. Students will learn application development on the Android platform. Topics will include memory management; user interface design; user interface building; input methods; data handling; network techniques and URL loading; and, finally, specifics such as GPS and motion sensing. Students are expected to work on a project that produces a professional-quality mobile application. Projects will be deployed in real-world applications. Course work will include project conception, design, implementation, and pilot testing of mobile phone software applications, using weight loss and physical activity motivation health applications as the target domain.
+        </text>
+        <br>
+        <a href="/Account/Register"> <button class="app-btn"> Sign Up</button></a>
+    </div>
+    <div class="app-dev-img">
+        <img src="~/imgs/mobileapp.png" alt="">
+    </div>
+    <div class="close-button">
+        <button onclick="document.getElementById('app-dev-form').style.display='none'" id="cancelbtn-a"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+</div>
+
+<!--Graphic Illustration-->
+<div id="graphic-form">
+    <div class="graphic">
+        <h2>Graphic Illustration</h2>
+        <text>
+            In today's diverse consumer market, illustration exists through many forms of expression breaking with traditional roles of the illustrator. Through a series of projects, students will explore the translation, production and distribution of their visual ideas. Through the integration of design principles and drawing skills, students gain an opportunity to discover new possibilities for illustrated visual expression in the market.
+            A student should have basic drawing skills, basic digital tool skills (Adobe Illustrator and Adobe Photoshop) and understanding in fundamental design theory, in order to take this class.
+        </text>
+        <br>
+        <a href="/Account/Register"> <button class="graphic-btn"> Sign Up</button></a>
+    </div>
+    <div class="graphic-img">
+        <img src="~/imgs/digital-illustration.png" alt="">
+    </div>
+    <div class="close-button">
+        <button onclick="document.getElementById('graphic-form').style.display='none'" id="cancelbtn-g"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+</div>
+
+<!--Data Science-->
+<div id="data-form">
+    <div class="data">
+        <h2>Data Science with Python</h2>
+        <text>
+            This course will introduce the learner to the basics of the python programming environment, including fundamental python programming techniques such as lambdas, reading and manipulating csv files, and the numpy library. The course will introduce data manipulation and cleaning techniques using the popular python pandas data science library and introduce the abstraction of the Series and DataFrame as the central data structures for data analysis, along with tutorials on how to use functions such as groupby, merge, and pivot tables effectively. By the end of this course, students will be able to take tabular data, clean it, manipulate it, and run basic inferential statistical analyses.
+            This course should be taken before any of the other Applied Data Science with Python courses: Applied Plotting, Charting & Data Representation in Python, Applied Machine Learning in Python, Applied Text Mining in Python, Applied Social Network Analysis in Python.
+        </text>
+        <br>
+        <a href="/Account/Register"> <button class="data-btn"> Sign Up</button></a>
+    </div>
+    <div class="data-img">
+        <img src="~/imgs/FAQ.png" alt="">
+    </div>
+    <div class="close-button">
+        <button onclick="document.getElementById('data-form').style.display='none'" id="cancelbtn-d"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+</div>
+
+
+<!--Contact Us Btn-->
+
+<a href="/Home/Contact">
+    <button id="contact-us">
+        <i class="fa-solid fa-comments"></i>
+    </button>
+</a>
+
+
+<script src="~/js/video-slider.js"></script>
+<script src="~/js/fashion.js"></script>
+<script src="~/js/web.js"></script>
+<script src="~/js/market.js"></script>
+<script src="~/js/app.js"></script>
+<script src="~/js/data.js"></script>
+<script src="~/js/graphic.js"></script>
+<script src="~/js/music.js"></script>
+<script src="~/js/photo.js"></script>
+<script src="~/js/self.js"></script>
+<script src="~/js/scrollTop.js"></script>
+<script src="~/js/contact-courses.js"></script>
+
+
+
+

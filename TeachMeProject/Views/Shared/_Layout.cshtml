@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="~/imgs/loggo.png" type="image/png">
+    <title>Teach Me | Online Courses</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="~/css/all-css.css">
+    
+    <script src="https://kit.fontawesome.com/8712b65637.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <!--Nav Bar-->
+    <div id="sticky-nav">
+        <nav class="nav-class">
+            <ul class="nav-list">
+                <li class="logo"><img src="~/imgs/loggo.png" alt="logo"></li>&nbsp;&nbsp;
+                <li class="site-title"><span id="first">Teach</span><span id="second">Me</span></li> &nbsp;
+                <li class="nav-item"><a href="/Home/Index">Home</a></li> &nbsp;&nbsp;
+                <li class="nav-item"><a href="/Home/About">About Us</a></li> &nbsp;&nbsp;
+                <li class="nav-item"><a href="/Course/Index">Our Courses</a></li> &nbsp;&nbsp;
+                <li class="nav-item"><a href="/Instructor/Index">Our Instructors</a></li> &nbsp;&nbsp;
+                <!--<li class="nav-item"><a href="register.html">Join Our Community</a></li> &nbsp;&nbsp;-->
+                <li class="nav-item">@Html.Partial("_LoginPartial")</li> &nbsp;
+                @*<li class="nav-item-icon">
+                    <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                </li> &nbsp;*@
+            </ul>
+        </nav>
+    </div>
+
+    
+    
+        @RenderBody()
+        
+    <!--Footer-->
+        <footer>
+
+
+            <div class="footer-container">
+                <div class="footer">
+                    <div class="footer-part-2">
+                        <h2>About Us</h2>
+                        <ul style="list-style-type:none">
+                            <li><a href="/Home/About">ABOUT US</a></li>
+                            <li><a href="/Instructor/Index">INSTRUCTORS</a></li>
+                            <li><a href="/Course/Index">COURSES</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-part-1">
+                        <h2 align="center">Contact Us</h2>
+                        <ul style="list-style-type:none">
+                            <li><a href="/Home/Contact">GET SUPPORT</a></li>
+                            <!--<li><a href="register.html">SIGN UP/SIGN IN</a></li>-->
+
+                        </ul>
+                    </div>
+
+                    <div class="footer-form-email">
+                        <h2>Newsletter</h2><br>
+                        <p>Sign up to receive email updates on new courses, announcements, schedule updates and more.</p>
+                        <input type="email" id="email-add" name="email-add" placeholder="Enter email address"> <br>
+                        <input type="submit" value="Subscribe" id="footer-email-btn">
+                    </div>
+
+
+                </div>
+                <br>
+                <br>
+                <div class="icons">
+                    <p align="center">
+                        <i class="fab fa-instagram"></i> &nbsp
+                        <i class="fab fa-facebook"></i> &nbsp
+                        <i class="fab fa-twitter"></i> &nbsp
+
+                    </p>
+                </div>
+
+                <hr>
+                <br>
+                <div class="copyright-section">
+                    <p align="center">&copy; @DateTime.Now.Year - TEACH ME. ALL RIGHTS RESERVED</p>
+                </div>
+
+
+            </div>
+
+
+
+        </footer>
+        
+    
+
+    <script src="~/js/slides.js"></script>
+    <script src="~/js/contact.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
